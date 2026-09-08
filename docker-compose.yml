@@ -1,0 +1,19 @@
+services:
+  orgsuite-asc-mcp:
+    build: .
+    image: orgsuite-asc-mcp:local
+    container_name: orgsuite-asc-mcp
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
+    environment:
+      MCP_HOST: 0.0.0.0
+      MCP_PORT: "3000"
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s

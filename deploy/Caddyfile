@@ -1,0 +1,9 @@
+asc.example.com {
+  encode gzip
+  reverse_proxy orgsuite-asc-mcp:3000
+  header {
+    X-Content-Type-Options nosniff
+    Referrer-Policy no-referrer
+    X-Frame-Options DENY
+  }
+}
