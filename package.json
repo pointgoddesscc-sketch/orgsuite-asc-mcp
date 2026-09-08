@@ -1,0 +1,7 @@
+{
+  "name": "orgsuite-asc-mcp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "OrgSuite App Store Connect MCP server for Grok Custom Connectors",
+  "license": "MIT"
+}
